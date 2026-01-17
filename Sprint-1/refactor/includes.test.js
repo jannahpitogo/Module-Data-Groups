@@ -1,5 +1,12 @@
 // Refactored version of includes should still pass the tests below:
 
+//criterias:
+//returns true when target is in array
+//returns false when target not in array
+//returns true when the target is in array multiple times
+//eturns false for empty array
+//searches for null
+
 const includes = require("./includes.js");
 
 test("returns true when target is in array", () => {

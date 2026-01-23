@@ -74,6 +74,6 @@ describe("sum", () => {
     const input = ["a", "b", "c", "d"];
     const output = sum(input);
 
-    expect(output).toEqual(-Infinity);
+    expect(output).toEqual(0);
   });
 });

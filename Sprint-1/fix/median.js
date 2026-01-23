@@ -12,7 +12,7 @@
 // - Get the median for even length
 
 function calculateMedian(list) {
-  if (!Array.isArray(list)) return null; // To check first if the input is an array
+  if (!Array.isArray(list) || list === 0) return null; // To check first if the input is an array.
 
   if (!list.some((ele) => typeof ele === "number")) return null; // To check if there's a number input
 

@@ -10,6 +10,8 @@ const recipe = {
   ingredients: ["olive oil", "tomatoes", "salt", "pepper"],
 };
 
-console.log(`${recipe.title} serves ${recipe.serves}
-  ingredients:
-${recipe}`);
+console.log(`${recipe.title} 
+  serves ${recipe.serves}
+  ingredients: ${recipe.ingredients}`);
+// This will log the title and serves correctly but with using template literals, it will logged just with how the template is putted.
+// a template literat can't also logged an object.

@@ -13,23 +13,71 @@ as the object doesn't contains a key of 'c'
 
 // Acceptance criteria:
 
-// Given a contains function
-// When passed an object and a property name
-// Then it should return true if the object contains the property, false otherwise
+describe("contains", () => {
+  // Given a contains function
+  // When passed an object and a property name
+  // Then it should return true if the object contains the property, false otherwise
 
-// Given an empty object
-// When passed to contains
-// Then it should return false
-test.todo("contains on empty object returns false");
+  test("when passed an object and a property should return true if the object contains the property, false otherwise", () => {
+    const food = {
+      breakfast: "egg",
+      lunch: "chicken",
+      dinner: "spaggheti",
+    };
 
-// Given an object with properties
-// When passed to contains with an existing property name
-// Then it should return true
+    expect(contains(food, "breakfast")).toEqual(true);
+    expect(contains(food, "lunch")).toEqual(true);
+    expect(contains(food, "brunch")).toEqual(false);
+    expect(contains(food, "merienda")).toEqual(false);
+  });
 
-// Given an object with properties
-// When passed to contains with a non-existent property name
-// Then it should return false
+  // Given an empty object
+  // When passed to contains
+  // Then it should return false
 
-// Given invalid parameters like an array
-// When passed to contains
-// Then it should return false or throw an error
+  test("Given an empty array return false", () => {
+    const food = {};
+
+    expect(contains(food)).toEqual(false);
+  });
+
+  // Given an object with properties
+  // When passed to contains with an existing property name
+  // Then it should return true
+
+  test("Given an object with properties passed with exisiting property name should return true", () => {
+    const food = {
+      breakfast: "egg",
+      lunch: "chicken",
+      dinner: "pasta",
+    };
+
+    expect(contains(food, "breakfast")).toEqual(true);
+    expect(contains(food, "breakfast")).toEqual(true);
+  });
+
+  // Given an object with properties
+  // When passed to contains with a non-existent property name
+  // Then it should return false
+
+  test("Given an object with properties when passed to contains with non-existent property should return false", () => {
+    const food = {
+      breakfast: "egg",
+      lunch: "chicken",
+      dinner: "pasta",
+    };
+
+    expect(contains(food, "brunch")).toEqual(false);
+    expect(contains(food, "midnightSnack")).toEqual(false);
+  });
+
+  // Given invalid parameters like an array
+  // When passed to contains
+  // Then it should return false or throw an error
+
+  test("Given invalid parameters like an array, should return false or throw an error", () => {
+    const input = [1, 2, 3];
+
+    expect(contains(input, 1)).toEqual(false);
+  });
+});

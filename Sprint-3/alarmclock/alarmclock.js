@@ -5,11 +5,13 @@ function setAlarm() {
   let inputNumber = Number(document.getElementById("alarmSet").value); //input field
   let timeRemainingOutput = document.getElementById("timeRemaining"); //text of time remaining
 
+  if (inputNumber === 0) return;
+
   clearInterval(interval);
   interval = setInterval(() => {
     if (inputNumber <= 0) {
       clearInterval(interval);
-      timeRemainingOutput.textContent = "Time remaining: 00:00:00";
+      timeRemainingOutput.textContent = "Time Remaining: 00:00:00";
       playAlarm();
       return;
     }
@@ -25,20 +27,13 @@ function setAlarm() {
 }
 
 function stopAlarm() {
-  // let inputNumber = Number(document.getElementById("alarmSet").value); //input field
-  // let timeRemainingOutput = document.getElementById("timeRemaining"); //text of time remaining
+  let inputNumber = Number(document.getElementById("alarmSet").value); //input field
+  let timeRemainingOutput = document.getElementById("timeRemaining"); //text of time remaining
 
-  // inputNumber = 0;
-
-  // interval = stopInterval(() => {
-  //   if (inputNumber <= 0) {
-  //     clearInterval(interval);
-  //     timeRemainingOutput.textContent = "Time remaining: 00:00:00";
-  //     return;
-  //   }
-  // }, 1000);
   clearTimeout(interval);
-  return (timeRemainingOutput.textContent = "Time remaining: 00:00:00");
+  timeRemainingOutput.textContent = "Time Remaining: 00:00:00";
+  inputNumber = 0;
+  return;
 }
 
 // DO NOT EDIT BELOW HERE

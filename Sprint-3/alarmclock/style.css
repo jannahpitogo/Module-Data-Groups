@@ -1,5 +1,5 @@
 body {
-  background-color: #282828;
+  background: radial-gradient(125% 125% at 50% 10%, #000000 40%, #0d1a36 100%);
 }
 
 .centre {
@@ -11,7 +11,8 @@ body {
   border: solid white;
   padding: 25px;
   background-color: white;
-  border-radius: 25px;
+  border-radius: 30px;
+  display: inline-table;
 }
 
 #alarmSet {
@@ -20,4 +21,21 @@ body {
 
 h1 {
   text-align: center;
+}
+
+#set {
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  font-size: x-small;
+  padding: 5px 10px;
+  margin-right: 2px;
+}
+
+#stop {
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  font-size: x-small;
+  padding: 5px 10px;
 }

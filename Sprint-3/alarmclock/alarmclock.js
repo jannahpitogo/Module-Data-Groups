@@ -1,39 +1,44 @@
-let hourFloat = inputNumber / 3600;
-let hours = Math.floor(hourFloat);
-let hoursRemainder = hourFloat - hours;
-let minutesFloat = hoursRemainder * 60;
-let minutes = Math.floor(minutesFloat);
-let minutesRemainder = minutesFloat - minutes;
-let seconds = Math.floor(minutesRemainder * 60);
+let interval;
+let remainingTime;
 
 function setAlarm() {
-  const inputNumber = Number(document.getElementById("alarmSet").value); //input field
-  const timeRemainingOutput = document.getElementById("timeRemaining"); //text of time remaining
+  let inputNumber = Number(document.getElementById("alarmSet").value); //input field
+  let timeRemainingOutput = document.getElementById("timeRemaining"); //text of time remaining
+
+  clearInterval(interval);
+  interval = setInterval(() => {
+    if (inputNumber <= 0) {
+      clearInterval(interval);
+      timeRemainingOutput.textContent = "Time remaining: 00:00:00";
+      playAlarm();
+      return;
+    }
+
+    inputNumber--;
+
+    let hours = Math.floor(inputNumber / 3600);
+    let minutes = Math.floor((inputNumber % 3600) / 60);
+    let seconds = Math.floor(inputNumber % 60);
+
+    timeRemainingOutput.textContent = `Time Remaining: ${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+  }, 1000);
 }
 
-function convert() {
-  if (seconds === 0) {
-    minutes = minutes - 1;
-    seconds = seconds + 60;
-  }
-  if (minutes === 0) {
-    hours = hours - 1;
-    minutes = minutes + 60;
-  }
-  if ((seconds, minutes, hours === 0)) {
-    clearInterval;
-  }
+function stopAlarm() {
+  // let inputNumber = Number(document.getElementById("alarmSet").value); //input field
+  // let timeRemainingOutput = document.getElementById("timeRemaining"); //text of time remaining
 
-  let remainingTime = `${hours}:${minutes}:${seconds}`;
-  return remainingTime;
-}
+  // inputNumber = 0;
 
-const interval = setInterval(() => {
-  timeRemainingOutput.textContent = remainingTime;
-}, 1000);
-
-function timeInterval() {
-  inputNumber;
+  // interval = stopInterval(() => {
+  //   if (inputNumber <= 0) {
+  //     clearInterval(interval);
+  //     timeRemainingOutput.textContent = "Time remaining: 00:00:00";
+  //     return;
+  //   }
+  // }, 1000);
+  clearTimeout(interval);
+  return (timeRemainingOutput.textContent = "Time remaining: 00:00:00");
 }
 
 // DO NOT EDIT BELOW HERE

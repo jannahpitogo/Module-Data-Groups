@@ -1,3 +1,5 @@
+let quoteOutput = document.textContent("quote");
+
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at

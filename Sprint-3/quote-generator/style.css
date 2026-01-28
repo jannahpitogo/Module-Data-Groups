@@ -1,1 +1,34 @@
-/** Write your CSS in here **/
+body {
+  margin: 0;
+  height: 100vh; /* full viewport height */
+  display: flex;
+  justify-content: center; /* horizontal */
+  align-items: center; /*Vertical*/
+  background: linear-gradient(to right, #0f172a, #334155);
+}
+
+.box {
+  display: flex;
+  flex-direction: column; /* stack text + button */
+  gap: 1rem;
+  padding: 50px 300px;
+  background-color: white;
+  border-radius: 50px;
+}
+
+#quote {
+}
+
+#new-quote {
+  border-radius: 25px;
+  padding: 5px;
+  background: radial-gradient(125% 125% at 50% 10%, #000000 40%, #0d1a36 100%);
+  color: white;
+  transition: transform 300ms;
+}
+
+#new-quote:hover {
+  color: black;
+  background: white;
+  transform: scale(1.05);
+}

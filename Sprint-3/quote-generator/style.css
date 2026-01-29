@@ -11,7 +11,7 @@ body {
   display: flex;
   flex-direction: column; /* stack text + button */
   gap: 1rem;
-  padding: 50px 300px;
+  padding: 50px 200px;
   background-color: white;
   border-radius: 50px;
 }

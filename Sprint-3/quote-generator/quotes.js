@@ -6,12 +6,6 @@ function newQuote(quoteNumber) {
   quoteTextAuthor.textContent = quoteValue["author"];
 }
 
-function setup() {
-  document.getElementById("quote").addEventListener("click", () => {
-    newQuote();
-  });
-}
-
 // DO NOT EDIT BELOW HERE
 
 // pickFromArray is a function which will return one item, at

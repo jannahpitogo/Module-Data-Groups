@@ -1,4 +1,5 @@
-// for the tests, do not modify this array of books
+let listOutput = document.getElementById("reading-list");
+
 const books = [
   {
     title: "The Design of Everyday Things",
@@ -21,3 +22,10 @@ const books = [
   },
 ];
 
+listOutput.innerHTML = `<ul>
+        <div class="container"><h2>${books[0].title} by ${books[0].author}</h2> <img src="${books[0].bookCoverImage}"> </div>
+        <div class="container"><h2>${books[1].title} by ${books[1].author}</h2> <img src="${books[1].bookCoverImage}"></div>
+        <div class="container"><h2>${books[2].title} by ${books[2].author}</h2> <img src="${books[2].bookCoverImage}"></div>
+      </ul>`;
+
+// for the tests, do not modify this array of books

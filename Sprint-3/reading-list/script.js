@@ -22,10 +22,30 @@ const books = [
   },
 ];
 
-listOutput.innerHTML = `<ul>
-        <div class="container"><h2>${books[0].title} by ${books[0].author}</h2> <img src="${books[0].bookCoverImage}"> </div>
-        <div class="container"><h2>${books[1].title} by ${books[1].author}</h2> <img src="${books[1].bookCoverImage}"></div>
-        <div class="container"><h2>${books[2].title} by ${books[2].author}</h2> <img src="${books[2].bookCoverImage}"></div>
-      </ul>`;
+let read = [];
+let unread = [];
 
+for (const item of books) {
+  if (item.alreadyRead === true) {
+    read.push(item);
+  } else {
+    unread.push(item);
+  }
+}
+
+let readContent = "";
+
+for (const item of read) {
+  readContent += `<ul> <div class="contentRead"><h2>${item.title} by ${item.author}</h2> <img src="${item.bookCoverImage}"> </div> </ul>`;
+}
+
+let unreadContent = "";
+
+for (const item of unread) {
+  unreadContent += `<ul> <div class="container"><h2>${item.title} by ${item.author}</h2> <img src="${item.bookCoverImage}"> </div> </ul>`;
+}
+
+const finalOutput = readContent + unreadContent;
+
+listOutput.innerHTML = finalOutput;
 // for the tests, do not modify this array of books

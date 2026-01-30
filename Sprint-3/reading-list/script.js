@@ -1,4 +1,5 @@
-// for the tests, do not modify this array of books
+let listOutput = document.getElementById("reading-list");
+
 const books = [
   {
     title: "The Design of Everyday Things",
@@ -21,3 +22,30 @@ const books = [
   },
 ];
 
+let read = [];
+let unread = [];
+
+for (const item of books) {
+  if (item.alreadyRead === true) {
+    read.push(item);
+  } else {
+    unread.push(item);
+  }
+}
+
+let readContent = "";
+
+for (const item of read) {
+  readContent += `<ul> <div class="contentRead"><h2>${item.title} by ${item.author}</h2> <img src="${item.bookCoverImage}"> </div> </ul>`;
+}
+
+let unreadContent = "";
+
+for (const item of unread) {
+  unreadContent += `<ul> <div class="container"><h2>${item.title} by ${item.author}</h2> <img src="${item.bookCoverImage}"> </div> </ul>`;
+}
+
+const finalOutput = readContent + unreadContent;
+
+listOutput.innerHTML = finalOutput;
+// for the tests, do not modify this array of books

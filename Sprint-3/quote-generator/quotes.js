@@ -1,15 +1,9 @@
 function newQuote(quoteNumber) {
   let quoteValue = pickFromArray(quotes);
-  let quoteTextTitle = document.textContent("quote");
-  let quoteTextAuthor = document.textContent("author");
-  quoteTextTitle = quoteValue[quote];
-  quoteTextAuthor = quoteValue[author];
-}
-
-function setup() {
-  document.getElementById("quote").addEventListener("click", () => {
-    newQuote();
-  });
+  let quoteTextTitle = document.getElementById("quote");
+  let quoteTextAuthor = document.getElementById("author");
+  quoteTextTitle.textContent = quoteValue["quote"];
+  quoteTextAuthor.textContent = quoteValue["author"];
 }
 
 // DO NOT EDIT BELOW HERE

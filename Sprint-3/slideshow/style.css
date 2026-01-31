@@ -1,10 +1,19 @@
+body {
+  background: radial-gradient(125% 125% at 50% 100%, #000000 40%, #2b0707 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .container {
-  height: 100vh;
-  width: 100%;
+  height: 70vh;
+  width: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: white;
+  border-radius: 25px;
 }
 
 img {
@@ -14,4 +23,10 @@ img {
 
 button {
   margin-bottom: 5px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 40px;
+  color: white;
 }

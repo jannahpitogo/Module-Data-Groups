@@ -33,24 +33,82 @@ const images = [
   },
 ];
 
-//FORWARD
 let imgCounter = 0;
-let imageIndex;
-if (imgCounter < images.length) {
+let imageIndexLink = "";
+let imageIndexAlt = "";
+const imageOutput = document.getElementById("carousel-img");
+let autoSwitch = 0;
+let intervalforward;
+let intervalbackward;
+
+//Forward
+function changeImgForward() {
   imgCounter++;
-  imageIndex = images[imgCounter];
-} else {
-  imgCounter = 0;
+  autoSwitch = 1;
+
+  if (imgCounter >= images.length) {
+    imgCounter = 0;
+  }
+
+  imageIndexLink = images[imgCounter].url;
+  imageIndexAlt = images[imgCounter].alt;
+
+  imageOutput.src = imageIndexLink;
+  imageOutput.alt = imageIndexAlt;
 }
 
-function changeImgForward() {
-  const imageForward = document.getElementById("carousel-img");
-  imageForward.innerHTML = `<img src="${imageIndex}" alt="cat-pic" />`;
+//Backward
+function changeImgBackward() {
+  imgCounter--;
+  autoSwitch = -1;
+
+  if (imgCounter < 0) {
+    imgCounter = 0;
+  }
+
+  imageIndexLink = images[imgCounter].url;
+  imageIndexAlt = images[imgCounter].alt;
+
+  imageOutput.src = imageIndexLink;
+  imageOutput.alt = imageIndexAlt;
+}
+
+function autoForward() {
+  intervalforward = setInterval(changeImgForward, 2500);
+  intervalforward;
+}
+
+function autoBackward() {
+  intervalbackward = setInterval(changeImgBackward, 2500);
+  intervalbackward;
+}
+
+function stopCarousel() {
+  if ((autoSwitch = 1)) {
+    clearInterval(intervalforward);
+  }
+  if ((autoSwitch = -1)) clearInterval(intervalbackward);
 }
 
 function setup() {
   document.getElementById("forward-btn").addEventListener("click", () => {
     changeImgForward();
+  });
+
+  document.getElementById("backward-btn").addEventListener("click", () => {
+    changeImgBackward();
+  });
+
+  document.getElementById("autoforward-btn").addEventListener("click", () => {
+    autoForward();
+  });
+
+  document.getElementById("autobackward-btn").addEventListener("click", () => {
+    autoBackward();
+  });
+
+  document.getElementById("stop-btn").addEventListener("click", () => {
+    stopCarousel();
   });
 }
 

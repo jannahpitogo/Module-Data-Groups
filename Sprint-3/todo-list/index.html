@@ -1,18 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>TO DO LIST APP</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <form>
+
+  <body class="center">
+    <div id="maintaskContainer"></div>
+    <form class="center">
       <div>
-        <input type="text" placeholder="New todo..." />
+        <input type="text" placeholder="New todo..." id="inputString" />
       </div>
       <div>
-        <button type="submit">Add Todo</button>
+        <button type="submit" id="submit-btn">Add Todo</button>
         <button
           type="button"
           id="remove-all-completed"

@@ -1,25 +1,113 @@
+let todos = [];
+
 function populateTodoList(todos) {
-  let list = document.getElementById("todo-list");
-  // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
+  const list = document.getElementById("maintaskContainer");
+
+  // length
+  // const taskInput = document.createElement("p");
+  // taskInput.classList = "task";
+  // const todosNew = todos[todos.length - 1];
+  // taskInput.textContent = todosNew.task;
+  // list.append(taskInput);
+
+  //label
+  const labelInput = document.createElement("label");
+  labelInput.classList = "task";
+  const todosNew = todos[todos.length - 1];
+  labelInput.textContent = todosNew.task;
+
+  //checkbox
+  const taskInput = document.createElement("input");
+  taskInput.type = "checkbox";
+  const index = todos.indexOf(todosNew.task);
+  taskInput.id = `checkboxinput${todos.length}`;
+  taskInput.dataset.index = todos.length - 1;
+
+  //label
+  labelInput.htmlFor = `checkboxinput${todos.length}`;
+
+  //DIV CONTAINER FOR EVERY TASK
+  const divContainer = document.createElement("div");
+  divContainer.id = `taskcontainer${todos.length}`;
+  divContainer.classList = "labelAndCheckbox";
+
+  divContainer.append(taskInput, labelInput);
+  list.append(divContainer);
 }
 
-// These are the same todos that currently display in the HTML
-// You will want to remove the ones in the current HTML after you have created them using JavaScript
-let todos = [
-  { task: "Wash the dishes", completed: false },
-  { task: "Do the shopping", completed: false },
-];
-
-populateTodoList(todos);
-
-// This function will take the value of the input field and add it as a new todo to the bottom of the todo list. These new todos will need the completed and delete buttons adding like normal.
 function addNewTodo(event) {
-  // The code below prevents the page from refreshing when we click the 'Add Todo' button.
   event.preventDefault();
-  // Write your code here... and remember to reset the input field to be blank after creating a todo!
+  const inputTask = document.getElementById("inputString").value;
+  const newTask = { task: inputTask, completed: false };
+  todos.push(newTask);
 }
 
-// Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos() {
-  // Write your code here...
+  const taskContainers = document.querySelectorAll(".labelAndCheckbox");
+
+  taskContainers.forEach((container) => {
+    const checkbox = container.querySelector("input[type='checkbox']");
+    const index = Number(checkbox.dataset.index);
+
+    if (checkbox.checked) {
+      todos.splice(index, 1);
+      container.remove();
+    }
+  });
+
+  const remainingCheckBoxes = document.querySelectorAll(
+    ".labelAndCheckbox input[type='checkbox']"
+  );
+
+  remainingCheckBoxes.forEach((checkbox, newIndex) => {
+    checkbox.dataset.index = newIndex;
+  });
+
+  //get the divs that will be removed
+  //access the checkboxes that returned true if checked
+  //removed from the array the things that returned true
+  //removed the divs that u acccessed and returned true
+
+  // for (let i = todos.length - 1; i >= 0; i--) {
+  //   const checkbox = document.getElementById(`checkboxinput${i}`);
+  //   if (!checkbox) continue;
+
+  //
+  // if (todos.completed === true) {
+  //   delete todos[i];
+  //   const container = document.getElementsByClassName("labelAndCheckbox");
+  //   const
+  //   container.removeChild()
 }
+
+// for (const item of todos) {
+//   const taskInput = document.createElement("p");
+//   taskInput.classList = "task";
+//   const todosNew = item;
+//   taskInput.textContent = todosNew.task;
+//   list.append(taskInput);
+// }
+// }
+
+function completedTask() {
+  for (let i = 0; i < todos.length; i++) {
+    if (document.getElementById(`checkboxinput${i}`).checked) {
+      delete todos[i];
+    }
+  }
+}
+
+function setup() {
+  document.getElementById("submit-btn").addEventListener("click", (event) => {
+    addNewTodo(event);
+    populateTodoList(todos);
+  });
+
+  document
+    .getElementById("remove-all-completed")
+    .addEventListener("click", () => {
+      deleteAllCompletedTodos();
+    });
+}
+
+window.onload = setup;

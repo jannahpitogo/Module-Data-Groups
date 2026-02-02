@@ -3,13 +3,6 @@ let todos = [];
 function populateTodoList(todos) {
   const list = document.getElementById("maintaskContainer");
 
-  // length
-  // const taskInput = document.createElement("p");
-  // taskInput.classList = "task";
-  // const todosNew = todos[todos.length - 1];
-  // taskInput.textContent = todosNew.task;
-  // list.append(taskInput);
-
   //label
   const labelInput = document.createElement("label");
   labelInput.classList = "task";
@@ -26,7 +19,7 @@ function populateTodoList(todos) {
   //label
   labelInput.htmlFor = `checkboxinput${todos.length}`;
 
-  //DIV CONTAINER FOR EVERY TASK
+  //div container for every task
   const divContainer = document.createElement("div");
   divContainer.id = `taskcontainer${todos.length}`;
   divContainer.classList = "labelAndCheckbox";
@@ -62,32 +55,11 @@ function deleteAllCompletedTodos() {
   remainingCheckBoxes.forEach((checkbox, newIndex) => {
     checkbox.dataset.index = newIndex;
   });
-
-  //get the divs that will be removed
-  //access the checkboxes that returned true if checked
-  //removed from the array the things that returned true
-  //removed the divs that u acccessed and returned true
-
-  // for (let i = todos.length - 1; i >= 0; i--) {
-  //   const checkbox = document.getElementById(`checkboxinput${i}`);
-  //   if (!checkbox) continue;
-
-  //
-  // if (todos.completed === true) {
-  //   delete todos[i];
-  //   const container = document.getElementsByClassName("labelAndCheckbox");
-  //   const
-  //   container.removeChild()
 }
-
-// for (const item of todos) {
-//   const taskInput = document.createElement("p");
-//   taskInput.classList = "task";
-//   const todosNew = item;
-//   taskInput.textContent = todosNew.task;
-//   list.append(taskInput);
-// }
-// }
+//get the divs that will be removed
+//access the checkboxes that returned true if checked
+//removed from the array the things that returned true
+//removed the divs that u acccessed and returned true
 
 function completedTask() {
   for (let i = 0; i < todos.length; i++) {

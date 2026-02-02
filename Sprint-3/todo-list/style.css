@@ -14,5 +14,51 @@ form {
 }
 
 .task {
+  margin-left: 10px;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  flex: 1;
   color: white;
+}
+
+#maintaskContainer {
+  margin: 5px;
+  padding: 60px;
+  /* background-color: white; */
+}
+
+.labelAndCheckbox {
+  display: flex;
+  align-items: flex-start;
+  width: 500px;
+  padding: 12px;
+  box-sizing: border-box;
+  background: linear-gradient(to right, #0f172a, #334155);
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.buttonContainer {
+  margin-top: 10px;
+}
+
+#inputString {
+  width: 500px;
+  height: 20px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  background-color: black;
+  border: 2px solid;
+}
+
+h1 {
+  color: white;
+  position: fixed;
+  top: 10px;
 }

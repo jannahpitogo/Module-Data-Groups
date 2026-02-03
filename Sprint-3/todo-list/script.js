@@ -12,7 +12,6 @@ function populateTodoList(todos) {
   //checkbox
   const taskInput = document.createElement("input");
   taskInput.type = "checkbox";
-  const index = todos.indexOf(todosNew.task);
   taskInput.id = `checkboxinput${todos.length}`;
   taskInput.dataset.index = todos.length - 1;
 
@@ -31,19 +30,26 @@ function populateTodoList(todos) {
   label.classList.toggle("completed"); //just assigning the class
   });
 
+  //displaying the date element
+  const deadlineInput = document.createElement("p");
+  deadlineInput.classList = "deadline"
+  deadlineInput.textContent = todosNew.deadline;
+
+
   //div container for every task
   const divContainer = document.createElement("div");
   divContainer.id = `taskcontainer${todos.length}`;
   divContainer.classList = "labelAndCheckbox";
 
-  divContainer.append(taskInput, trashButton, labelInput);
+  divContainer.append(taskInput, trashButton, labelInput, deadlineInput);
   list.append(divContainer);
 }
 
 function addNewTodo(event) {
   event.preventDefault();
   const inputTask = document.getElementById("inputString").value;
-  const newTask = { task: inputTask, completed: false };
+  const inputDeadline = document.getElementById("deadlineInput").value;
+  const newTask = { task: inputTask, completed: false, deadline: inputDeadline};
   todos.push(newTask);
 }
 

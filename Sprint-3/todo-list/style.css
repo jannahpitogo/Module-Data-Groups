@@ -75,3 +75,17 @@ h1 {
   opacity: 0.6;
 }
 
+p{
+  color: white;
+}
+
+.deadline {
+  margin-left: 10px;
+  font-size: 0.85rem;
+  color: white;
+  padding: 0;
+  margin: 0;
+  
+
+}
+

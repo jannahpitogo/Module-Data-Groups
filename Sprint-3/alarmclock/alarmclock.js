@@ -12,7 +12,10 @@ function setAlarm() {
     if (inputNumber <= 0) {
       clearInterval(interval);
       timeRemainingOutput.textContent = "Time Remaining: 00:00:00";
+      const changeBackground = document.querySelector("body")
+      changeBackground.style.backgroundColor = "blue";
       playAlarm();
+      
       return;
     }
 
@@ -29,6 +32,8 @@ function setAlarm() {
 function stopAlarm() {
   let inputNumber = Number(document.getElementById("alarmSet").value); //input field
   let timeRemainingOutput = document.getElementById("timeRemaining"); //text of time remaining
+  const changeBackground = document.querySelector("body");
+  changeBackground.style.backgroundColor = "black"
 
   clearTimeout(interval);
   timeRemainingOutput.textContent = "Time Remaining: 00:00:00";

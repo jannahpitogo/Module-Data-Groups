@@ -23,7 +23,7 @@ body {
 }
 
 .container {
-  background-color: #0f172a;
+  background-color: red;
   padding: 60px 100px;
   border-radius: 60px;
   margin-bottom: 20px;
@@ -36,7 +36,7 @@ body {
 }
 
 .contentRead {
-  background-color: #aaadb2;
+  background-color: green;
   padding: 60px 100px;
   border-radius: 60px;
   margin-bottom: 20px;

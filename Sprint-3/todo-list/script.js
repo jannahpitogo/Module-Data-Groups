@@ -19,12 +19,24 @@ function populateTodoList(todos) {
   //label
   labelInput.htmlFor = `checkboxinput${todos.length}`;
 
+  //trash icon
+  const trashButton = document.createElement("button");
+  trashButton.classList = "trash-btn";
+  trashButton.textContent = "🗑️";
+
+  trashButton.addEventListener("click", function () {
+  const taskContainer = this.parentElement; //getting the parent element to select
+  const label = taskContainer.querySelector("label"); //to get the label with the text assigned where I could change the class to change it to .completed so it will a strikethrough
+
+  label.classList.toggle("completed"); //just assigning the class
+  });
+
   //div container for every task
   const divContainer = document.createElement("div");
   divContainer.id = `taskcontainer${todos.length}`;
   divContainer.classList = "labelAndCheckbox";
 
-  divContainer.append(taskInput, labelInput);
+  divContainer.append(taskInput, trashButton, labelInput);
   list.append(divContainer);
 }
 
@@ -55,6 +67,10 @@ function deleteAllCompletedTodos() {
   remainingCheckBoxes.forEach((checkbox, newIndex) => {
     checkbox.dataset.index = newIndex;
   });
+}
+
+function deleteItem() {
+
 }
 //get the divs that will be removed
 //access the checkboxes that returned true if checked

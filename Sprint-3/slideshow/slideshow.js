@@ -74,12 +74,12 @@ function changeImgBackward() {
 }
 
 function autoForward() {
-  intervalforward = setInterval(changeImgForward, 2500);
+  intervalforward = setInterval(changeImgForward, 5000);
   intervalforward;
 }
 
 function autoBackward() {
-  intervalbackward = setInterval(changeImgBackward, 2500);
+  intervalbackward = setInterval(changeImgBackward, 5000);
   intervalbackward;
 }
 

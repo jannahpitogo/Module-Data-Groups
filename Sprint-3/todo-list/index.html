@@ -1,18 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Title here</title>
+    <title>TO DO LIST APP</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   </head>
-  <body>
-    <form>
+
+  <body class="center">
+    <h1>TO DO LIST</h1>
+    <div id="maintaskContainer" class="center"></div>
+    <form class="center">
       <div>
-        <input type="text" placeholder="New todo..." />
+        <input type="text" placeholder="New todo..." id="inputString" />
+        <input type="date" placeholder="Add a deadline" id="deadlineInput" />
       </div>
-      <div>
-        <button type="submit">Add Todo</button>
+      <div class="buttonContainer">
+        <button type="submit" id="submit-btn">Add Todo</button>
         <button
           type="button"
           id="remove-all-completed"

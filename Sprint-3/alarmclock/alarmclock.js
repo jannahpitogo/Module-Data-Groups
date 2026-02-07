@@ -1,4 +1,45 @@
-function setAlarm() {}
+let interval;
+let remainingTime;
+
+function setAlarm() {
+  let inputNumber = Number(document.getElementById("alarmSet").value); //input field
+  let timeRemainingOutput = document.getElementById("timeRemaining"); //text of time remaining
+
+  if (inputNumber === 0) return;
+
+  clearInterval(interval);
+  interval = setInterval(() => {
+    if (inputNumber <= 0) {
+      clearInterval(interval);
+      timeRemainingOutput.textContent = "Time Remaining: 00:00:00";
+      const changeBackground = document.querySelector("body")
+      changeBackground.style.backgroundColor = "blue";
+      playAlarm();
+      
+      return;
+    }
+
+    inputNumber--;
+
+    let hours = Math.floor(inputNumber / 3600);
+    let minutes = Math.floor((inputNumber % 3600) / 60);
+    let seconds = Math.floor(inputNumber % 60);
+
+    timeRemainingOutput.textContent = `Time Remaining: ${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+  }, 1000);
+}
+
+function stopAlarm() {
+  let inputNumber = Number(document.getElementById("alarmSet").value); //input field
+  let timeRemainingOutput = document.getElementById("timeRemaining"); //text of time remaining
+  const changeBackground = document.querySelector("body");
+  changeBackground.style.backgroundColor = "black"
+
+  clearTimeout(interval);
+  timeRemainingOutput.textContent = "Time Remaining: 00:00:00";
+  inputNumber = 0;
+  return;
+}
 
 // DO NOT EDIT BELOW HERE
 
